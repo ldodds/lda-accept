@@ -1,8 +1,7 @@
 require File.join(File.dirname(__FILE__), "..", "helper/spec_helper.rb")
 
 #Include shared_examples for JSON tests
-require File.join(File.dirname(__FILE__), "..", "common/json_shared.spec")
-
+require File.join( File.dirname(__FILE__), "..", "common/json_shared.rb")
 
 describe "The Mountain Climbing JSON API, " do
 
