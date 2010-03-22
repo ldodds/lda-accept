@@ -21,7 +21,7 @@ describe "The Education API," do
   
   end
       
-  when "requesting the short view" do
+  context "requesting the short view" do
     before :all do
         ENV['server'] ||= 'localhost'
         @response = server_get "/doc/schools.json?_view=short"
@@ -41,7 +41,7 @@ describe "The Education API," do
     end
   end
   
-  when "requesting the medium view" do
+  context "requesting the medium view" do
     before :all do
         ENV['server'] ||= 'localhost'
         @response = server_get "/doc/schools.json?_view=medium"
@@ -62,7 +62,7 @@ describe "The Education API," do
     end
   end  
   
-  when "requesting the geo view" do
+  context "requesting the geo view" do
     before :all do
         ENV['server'] ||= 'localhost'
         @response = server_get "/doc/schools.json?_view=geo"
