@@ -28,8 +28,8 @@ shared_examples_for "All JSON Requests" do
      query(@response, "$.result.isPartOf").should_not be_nil
     end
 
-    it "should refer to its description" do 
-     query(@response, "$.result.metadata").should_not be_nil
+    it "should refer to its definition" do 
+     query(@response, "$.result.definition").should_not be_nil
     end
 
 end

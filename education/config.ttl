@@ -91,7 +91,7 @@ spec:schools
 	a api:ListEndpoint ;
 	api:uriTemplate "/doc/schools" ;
 	api:selector [ 
-		api:type school:School
+		api:filter "type=School"
 	] ;
 	api:defaultViewer api:describeViewer ;
 	api:viewer spec:viewerShort ;
@@ -147,6 +147,9 @@ spec:schoolsSecondaryDistrict
 #
 ############################################################################################
 
+rdf:type
+  api:label "type" .
+  
 geo:lat
       api:label "lat" .
 

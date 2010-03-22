@@ -3,6 +3,9 @@ require File.join(File.dirname(__FILE__), "..", "helper/spec_helper.rb")
 #Include shared_examples for JSON tests
 require File.join( File.dirname(__FILE__), "..", "common/json_shared.rb")
 
+#Include shared_examples for Education tests
+require "edu_shared.rb"
+
 describe "The Education API," do
 
   context "when accessing an unknown endpoint" do
@@ -20,12 +23,13 @@ describe "The Education API," do
   context "when retrieving schools" do
         before :all do
     ENV['server'] ||= 'localhost'
-    @response = server_get "doc/schools.json"
+    @response = server_get "/doc/schools.json"
     end
 
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"      
-
+    it_should_behave_link "All School Requests"
+         
   end
 
   context "when retrieving primary schools" do
@@ -37,7 +41,8 @@ describe "The Education API," do
 
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"      
-
+    it_should_behave_link "All School Requests"
+    
   end
 
   context "when retrieving secondary schools" do
@@ -49,7 +54,7 @@ describe "The Education API," do
 
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"      
-
+    it_should_behave_link "All School Requests"
   end
         
 end
