@@ -14,7 +14,8 @@ shared_examples_for "All School Requests" do
   end
 
   it "should have default page size" do
-    query(@response, "$.result.items").size.should == 10  
+    query(@response, "$.result.items").size.should == 10
+    query(@response, "$.result.itemsPerPage").should == 10     
   end
     
 end
