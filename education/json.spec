@@ -28,7 +28,7 @@ describe "The Education API," do
 
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"      
-    it_should_behave_link "All School Requests"
+    it_should_behave_like "All School Requests"
          
   end
 
@@ -41,7 +41,7 @@ describe "The Education API," do
 
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"      
-    it_should_behave_link "All School Requests"
+    it_should_behave_like "All School Requests"
     
   end
 
