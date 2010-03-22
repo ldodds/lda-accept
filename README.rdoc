@@ -47,13 +47,18 @@ Hopefully the following should handle all of that and any dependencies:
 
 The tests are organised into several sub-directories.
 
-<tt>puelia</tt>
-* test suite for Puelia Implementation
+<tt>mountain</tt>
+* test suite for mountain climbing data used in Puelia Implementation
   
 <tt>education</tt>
 * test suite for education.data.gov.uk API
 
+To install the test config, copy the config.ttl to the relevant location in your implementation.
+ 
 To run the tests do:
 
   spec dir/name-of-spec-file.spec
+
+To override the location of the Linked Data server, set the <tt>server</tt> environment parameter
+
 
