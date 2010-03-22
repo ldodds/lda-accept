@@ -1,0 +1,59 @@
+= LINKED DATA ACCEPTANCE 
+
+Acceptance test suite for the Linked Data API 
+
+== Overview
+
+This project contains a set of acceptance tests for the Linked Data API specification:
+
+http://purl.org/linked-data/api/spec
+
+The tests are implemented in RSpec and are intended to be run against a live deployment of the API.
+
+The goals are to:
+
+* Help plug any gaps in the spec
+* Provide some basic tests that can be used to check the capabilities of any arbitrary deployment
+* Provide some detailed tests that run against a known dataset and configuration to exercise a specific API implementation 
+* Provide a jumping off point for testing other deployments
+
+The project is a work in progress so subsequent to sudden and violent changes :)
+
+== Installation
+
+The tests are implemented using RSpec. You'll need to have Ruby 1.8, Ruby Gems, and have installed the following gems:
+
+RSpec:
+* Ruby Behaviour Driven Test Framework
+* http://rspec.info/
+   
+Rest Client
+* Restful Web Client
+* http://rdoc.info/projects/archiloque/rest-client
+   
+JSON
+* Ruby JSON Implementation
+* http://flori.github.com/json/
+   
+Siren
+* Ruby JSON & JSONQuery interpreter 
+* http://github.com/jcoglan/siren
+   
+Hopefully the following should handle all of that and any dependencies:
+
+  sudo gem install rspec rest-client json siren
+
+== Running the Tests
+
+The tests are organised into several sub-directories.
+
+<tt>puelia</tt>
+* test suite for Puelia Implementation
+  
+<tt>education</tt>
+* test suite for education.data.gov.uk API
+
+To run the tests do:
+
+  spec dir/name-of-spec-file.spec
+
