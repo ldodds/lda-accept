@@ -7,7 +7,7 @@ shared_examples_for "All School Requests" do
     schools = 0    
     query(@response, "$.result.items").each do |school|
       school["type"].each do |type|
-        schools = schools + 1 if type["_about"] == "http://education.data.gov.uk/def/school/School"
+        schools = schools + 1 if type == "http://education.data.gov.uk/def/school/School"
       end
     end
     schools.should == 10
@@ -15,7 +15,7 @@ shared_examples_for "All School Requests" do
 
   it "should have default page size" do
     query(@response, "$.result.items").size.should == 10
-    query(@response, "$.result.itemsPerPage").should == 10     
+    query(@response, "$.result.itemsPerPage").should == "10"     
   end
     
 end
