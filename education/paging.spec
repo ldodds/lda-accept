@@ -12,7 +12,7 @@ describe "The Education API," do
    
    before :all do
     ENV['server'] ||= 'localhost'
-    @response = server_get "/doc/schools.json?_pageSize=11"
+    @response = server_get "doc/schools.json?_pageSize=11"
    end
    
    it_should_behave_like "All JSON Requests"
@@ -22,19 +22,20 @@ describe "The Education API," do
      query(@response, "$.result.items").size.should == 11
      query(@response, "$.result.itemsPerPage").should == 11         
    end
-       end
+      
+ end
   
   context "when exceeding the maximum page size" do
     
     before :all do
      ENV['server'] ||= 'localhost'
-     @response = server_get "/doc/schools.json?_pageSize=1000"
+     @response = server_get "doc/schools.json?_pageSize=1000"
     end
     
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"
     #this includes a check for default page size      
-    it_should_behave_link "All School Requests"    
+    it_should_behave_like "All School Requests"    
        
   end
    

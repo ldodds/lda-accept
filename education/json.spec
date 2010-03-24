@@ -18,10 +18,12 @@ describe "The Education API," do
     it "should report a 404 Not Found" do
      @response.code.should == 404       
     end
-    end
+  
+  end
   
   context "when retrieving schools" do
-        before :all do
+    
+    before :all do
     ENV['server'] ||= 'localhost'
     @response = server_get "/doc/schools.json"
     end
@@ -54,7 +56,7 @@ describe "The Education API," do
 
     it_should_behave_like "All JSON Requests"
     it_should_behave_like "All JSON List Endpoints"      
-    it_should_behave_link "All School Requests"
+    it_should_behave_like "All School Requests"
   end
         
 end
