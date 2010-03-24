@@ -10,13 +10,15 @@ describe "The Education API," do
 
   context "when accessing an unknown view" do
     
-    before :all do
-    ENV['server'] ||= 'localhost'
-    @response = server_get "/doc/schools.json?_view=fubar"
-    end
-
-    it "should report a 400 Error" do
-     @response.code.should == 400       
+    begin
+      before :all do
+      ENV['server'] ||= 'localhost'
+      @response = server_get "doc/schools.json?_view=fubar"
+      end
+    rescue
+      it "should report a 400 Error" do
+       @response.code.should == 400       
+      end
     end
   
   end
@@ -24,7 +26,7 @@ describe "The Education API," do
   context "requesting the short view" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "/doc/schools.json?_view=short"
+        @response = server_get "doc/schools.json?_view=short"
     end
     
     it_should_behave_like "All JSON Requests"
@@ -34,7 +36,7 @@ describe "The Education API," do
     it "should return only the expected properties" do
       query(@response, "$.result.items").each do |school|
         rejects = school.keys.reject do |item|
-          ["type", "label", "establishmentStatus", "typeOfEstablishment"].include?(item)
+          ["_about", "type", "label", "establishmentStatus", "typeOfEstablishment"].include?(item)
         end
         rejects.size.should == 0
       end
@@ -44,7 +46,7 @@ describe "The Education API," do
   context "requesting the medium view" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "/doc/schools.json?_view=medium"
+        @response = server_get "doc/schools.json?_view=medium"
     end
     
     it_should_behave_like "All JSON Requests"
@@ -54,7 +56,7 @@ describe "The Education API," do
     it "should return only the expected properties" do
       query(@response, "$.result.items").each do |school|
         rejects = school.keys.reject do |item|
-          ["type", "label", "establishmentStatus", "typeOfEstablishment", "schoolCapacity", "phaseOfEducation", 
+          ["_about", "type", "label", "establishmentStatus", "typeOfEstablishment", "schoolCapacity", "phaseOfEducation", 
           "districtAdministrative", "parliamentaryConstituency", "administrativeWard", "nurseryProvision"].include?(item)
         end
         rejects.size.should == 0
@@ -65,7 +67,7 @@ describe "The Education API," do
   context "requesting the geo view" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "/doc/schools.json?_view=geo"
+        @response = server_get "doc/schools.json?_view=geo"
     end
     
     it_should_behave_like "All JSON Requests"
@@ -75,7 +77,7 @@ describe "The Education API," do
     it "should return only the expected properties" do
       query(@response, "$.result.items").each do |school|
         rejects = school.keys.reject do |item|
-          ["type", "label", "establishmentStatus", "lat", "long"].include?(item)
+          ["_about", "type", "label", "establishmentStatus", "lat", "long"].include?(item)
         end
         rejects.size.should == 0
       end

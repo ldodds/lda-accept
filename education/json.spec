@@ -10,22 +10,23 @@ describe "The Education API," do
 
   context "when accessing an unknown endpoint" do
     
-    before :all do
-    ENV['server'] ||= 'localhost'
-    @response = server_get "fubar.json"
+    begin
+      before :all do
+      ENV['server'] ||= 'localhost'
+      @response = server_get "fubar.json"
+      end
+    rescue
+      it "should report a 404 Not Found" do
+       @response.code.should == 404       
+      end
     end
-
-    it "should report a 404 Not Found" do
-     @response.code.should == 404       
-    end
-  
   end
   
   context "when retrieving schools" do
     
     before :all do
     ENV['server'] ||= 'localhost'
-    @response = server_get "/doc/schools.json"
+    @response = server_get "doc/schools.json"
     end
 
     it_should_behave_like "All JSON Requests"
