@@ -4,7 +4,7 @@ require File.join(File.dirname(__FILE__), "..", "helper/spec_helper.rb")
 require File.join( File.dirname(__FILE__), "..", "common/json_shared.rb")
 
 #Include shared_examples for Education tests
-require "edu_shared.rb"
+require File.join( File.dirname(__FILE__), "edu_shared.rb")
 
 describe "The Education API," do
 
