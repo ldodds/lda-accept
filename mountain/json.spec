@@ -8,7 +8,7 @@ describe "The Mountain Climbing JSON API, " do
   context "when retrieving routes" do
 	  before :all do
 		ENV['server'] ||= 'localhost'
-		@response = server_get "Routes.json"
+		@response = server_get "Climbing/Routes.json"
 	  end
 
 	  it_should_behave_like "All JSON Requests"
