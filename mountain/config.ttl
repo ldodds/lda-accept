@@ -27,7 +27,7 @@
 	.
 
 <#routesEndpoint> a api:ListEndpoint ;
-		api:uriTemplate "/Routes" ;
+		api:uriTemplate "/Climbing/Routes" ;
 		api:selector [
 			api:where " ?item a climb:Route "
 #			api:filter "type=Route"
