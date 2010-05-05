@@ -13,7 +13,7 @@ describe "The Education API," do
     begin
       before :all do
       ENV['server'] ||= 'localhost'
-      @response = server_get "doc/schools.json?_view=fubar"
+      @response = server_get "education/api/schools.json?_view=fubar"
       end
     rescue
       it "should report a 400 Error" do
@@ -26,7 +26,7 @@ describe "The Education API," do
   context "requesting the short view" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?_view=short"
+        @response = server_get "education/api/schools.json?_view=short"
     end
     
     it_should_behave_like "All JSON Requests"
@@ -46,7 +46,7 @@ describe "The Education API," do
   context "requesting the medium view" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?_view=medium"
+        @response = server_get "education/api/schools.json?_view=medium"
     end
     
     it_should_behave_like "All JSON Requests"
@@ -67,7 +67,7 @@ describe "The Education API," do
   context "requesting the geo view" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?_view=geo"
+        @response = server_get "education/api/schools.json?_view=geo"
     end
     
     it_should_behave_like "All JSON Requests"

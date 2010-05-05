@@ -12,7 +12,7 @@ describe "The Education API," do
    
    before :all do
     ENV['server'] ||= 'localhost'
-    @response = server_get "doc/schools.json?_pageSize=11"
+    @response = server_get "education/api/schools.json?_pageSize=11"
    end
    
    it_should_behave_like "All JSON Requests"
@@ -29,7 +29,7 @@ describe "The Education API," do
     
     before :all do
      ENV['server'] ||= 'localhost'
-     @response = server_get "doc/schools.json?_pageSize=1000"
+     @response = server_get "education/api/schools.json?_pageSize=1000"
     end
     
     it_should_behave_like "All JSON Requests"

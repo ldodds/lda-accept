@@ -11,7 +11,7 @@ describe "The Education API," do
   context "when retrieving only open schools" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?establishmentStatus.label=Open"
+        @response = server_get "education/api/schools.json?establishmentStatus.label=Open"
     end
     
     it "should only have open schools" do
@@ -23,7 +23,7 @@ describe "The Education API," do
   context "when retrieving only open schools, by name of status" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?name-establishmentStatus=Open"
+        @response = server_get "education/api/schools.json?name-establishmentStatus=Open"
     end
     
     it "should only have open schools" do
@@ -36,7 +36,7 @@ describe "The Education API," do
     before :all do
         ENV['server'] ||= 'localhost'
         #retrieve "medium" view so we can access properties
-        @response = server_get "doc/schools.json?_view=medium&establishmentStatus.label=Open&nurseryProvision=true"
+        @response = server_get "education/api/schools.json?_view=medium&establishmentStatus.label=Open&nurseryProvision=true"
     end
     
     it "should only have open schools with a nursery" do
@@ -51,7 +51,7 @@ describe "The Education API," do
   context "when retrieving schools with a minimum capacity" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?_view=medium&_sort=schoolCapacity&min-schoolCapacity=100&establishmentStatus.label=Open"
+        @response = server_get "education/api/schools.json?_view=medium&_sort=schoolCapacity&min-schoolCapacity=100&establishmentStatus.label=Open"
     end
     
     it "should respective the values in the filter" do
@@ -64,7 +64,7 @@ describe "The Education API," do
   context "when retrieving schools with a maximum capacity" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?_view=medium&_sort=schoolCapacity&max-schoolCapacity=20&establishmentStatus.label=Open"
+        @response = server_get "education/api/schools.json?_view=medium&_sort=schoolCapacity&max-schoolCapacity=20&establishmentStatus.label=Open"
     end
     
     it "should respective the values in the filter" do
@@ -77,7 +77,7 @@ describe "The Education API," do
   context "when retrieving schools with a specific capacity" do
     before :all do
         ENV['server'] ||= 'localhost'
-        @response = server_get "doc/schools.json?_view=medium&_sort=schoolCapacity&schoolCapacity=5&establishmentStatus.label=Open"
+        @response = server_get "education/api/schools.json?_view=medium&_sort=schoolCapacity&schoolCapacity=5&establishmentStatus.label=Open"
     end
     
     it "should respective the values in the filter" do
