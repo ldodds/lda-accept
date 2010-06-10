@@ -126,7 +126,7 @@ spec:schoolsPrimaryDistrict
 	api:uriTemplate "/education/api/schools/primary/district/{district}" ;
     api:selector [ 
 		api:parent spec:schoolsPrimarySelector ;
-		api:filter "name-districtAdministrative=?district"
+		api:filter "name-districtAdministrative={district}"
 	] ;
 	api:defaultViewer spec:viewershort
     .
@@ -136,7 +136,7 @@ spec:schoolsSecondaryDistrict
 	api:uriTemplate "/education/api/schools/secondary/district/{district}" ;
     api:selector [ 
 		api:parent spec:schoolsSecondarySelector ;
-		api:filter "name-districtAdministrative=?district"
+		api:filter "name-districtAdministrative={district}"
 	] ;
 	api:defaultViewer spec:viewerShort
 	.

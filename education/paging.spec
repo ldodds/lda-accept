@@ -20,7 +20,7 @@ describe "The Education API," do
    
    it "should return more results" do
      query(@response, "$.result.items").size.should == 11
-     query(@response, "$.result.itemsPerPage").should == "11"         
+     query(@response, "$.result.itemsPerPage").should == 11  
    end
       
  end

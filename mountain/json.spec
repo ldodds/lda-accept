@@ -14,7 +14,28 @@ describe "The Mountain Climbing JSON API, " do
 	  it_should_behave_like "All JSON Requests"
 	  it_should_behave_like "All JSON List Endpoints"      
   end
+  
+  context "when making a request to the Mountain endpoint"
+    before :all do
+  	ENV['server'] ||= 'localhost'
+  	@response = server_get "Climbing/Mountain/Ben_Nevis.json"
+    end
+  
+    it "should not have a language tag on properties not annotated as being api:structuredProperty" do
+       query(@response, "$.result.primaryTopic.name").should_not match(/@en/)
+     end
 
+  context "when a list has no items" do
+    before :all do
+      ENV['server'] ||= 'localhost'
+      @response = server_get "Climbing/Routes/byGrade/nosuchGrade.json"
+    end
+    
+    it "should have an empty array under the items property" do
+        query(@response, "$.result.items").should ==[]
+    end
+  end
+  
 
 end
 
