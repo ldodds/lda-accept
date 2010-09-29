@@ -55,7 +55,7 @@ describe "The Education API," do
     end
     
     it "should respective the values in the filter" do
-      query(@response, "$.result.items[? @.schoolCapacity < 100 ]").size.should == 0
+      query(@response, "$.result.items[? @.schoolCapacity < 100 ]").should == []
       query(@response, "$.result.items[? @.schoolCapacity >= 100 ]").size.should == 10
     end
     
@@ -69,7 +69,7 @@ describe "The Education API," do
     
     it "should respective the values in the filter" do
       query(@response, "$.result.items[? @.schoolCapacity <= 20 ]").size.should == 10
-      query(@response, "$.result.items[? @.schoolCapacity > 20 ]").size.should == 0
+      query(@response, "$.result.items[? @.schoolCapacity > 20 ]").should == []
     end
     
   end  
@@ -82,8 +82,8 @@ describe "The Education API," do
     
     it "should respective the values in the filter" do
       query(@response, "$.result.items[? @.schoolCapacity = 5 ]").size.should == 10
-      query(@response, "$.result.items[? @.schoolCapacity > 5 ]").size.should == 0
-      query(@response, "$.result.items[? @.schoolCapacity < 5 ]").size.should == 0
+      query(@response, "$.result.items[? @.schoolCapacity > 5 ]").should == []
+      query(@response, "$.result.items[? @.schoolCapacity < 5 ]").should == []
     end
     
   end      

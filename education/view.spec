@@ -38,7 +38,7 @@ describe "The Education API," do
         rejects = school.keys.reject do |item|
           ["_about", "type", "label", "establishmentStatus", "typeOfEstablishment"].include?(item)
         end
-        rejects.size.should == 0
+        rejects.size.should == []
       end
     end
   end
